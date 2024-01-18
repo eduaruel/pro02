@@ -40,7 +40,7 @@ exports.verificarUsuarioAdmin = async (req, res, next) => {
         }
 
         // Redireccionar
-        req.flash('error', 'No eres el Administador')
+        req.flash('error', 'No eres el Administrador')
          res.redirect('/iniciar-administrador');
     } catch (error) {
         console.error(error);
