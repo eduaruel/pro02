@@ -1,0 +1,24 @@
+<main class="contenedor">
+    <form action="/editar-perfil" method="POST" role="form" class="default-form" enctype="multipart/form-data">
+    <div class="campo">
+        <label>Nombre</label>
+        <input type="text" name="nombre" placeholder="Nombre" value="{{Usuarios.nombre}}" required>
+    </div>
+    <div class="campo">
+        <label>E-mail</label>
+        <input type="email" name="email" placeholder="E-mail" value="{{Usuarios.email}}" required>
+    </div>
+    <div class="campo">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="password" >
+    </div>
+    <div class="campo">
+        <label>Imagen</label>
+        <input type="file" name="imagen" placeholder="Imagen de Perfil" >
+        <img src="/uploads/perfiles/{{Usuarios.imagen}}" class="admin-perfil2">
+    </div>
+    <div class="campo">
+        <input type="submit" class="btn btn-verde" value="Guardar Cambios">
+    </div>
+    </form>
+</main>

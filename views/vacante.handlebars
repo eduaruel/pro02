@@ -1,0 +1,77 @@
+<div class="contenido-superior vacante contenedor">
+   <div class="caja">
+      <p class="etiqueta">Empresa</p>
+      <p class="nombre">{{vacante.empresa}}</p>
+   </div>
+   <div class="caja">
+      <p class="etiqueta">Ubicación</p>
+      <p class="nombre">{{vacante.ubicacion}}</p>
+   </div>
+   <div class="caja">
+      <p class="etiqueta">Contrato</p>
+      <p class="nombre contrato">{{vacante.contrato}}</p>
+   </div>
+   <div class="caja">
+      <p class="etiqueta">Salario</p>
+      <p class="nombre">{{vacante.salario}}</p>
+   </div>
+</div>
+
+<div class="vacante-contenedor contenedor">
+   <main class="contenido">
+      <h2>Descripción del Puesto</h2>
+      <div class="vacante-descripcion">
+         {{{vacante.descripcion}}}
+      </div>
+      {{#if botonEditar}}
+      <div class="grid">
+      <a href="/vacantes/editar/{{vacante.url}}" class="btn btn-verde">Editar Vacante</a>
+      </div>
+      {{/if}}
+   
+   </main>
+   <aside class="sidebar">
+      <h2>Conocimientos Deseados</h2>
+      <ul class="skills">
+         {{#each vacante.skills}}
+         <li>{{this}}</li>
+         {{/each}}
+      </ul>
+   </aside>
+</div>
+<div class="contenedor datos-reclutador">
+   <div class="enviar-datos">
+      <h2>Contactar Via Digital</h2>
+      <p>Sube tu curriculum</p>
+
+      <form action="/vacantes/{{vacante.url}}" method="POST" class="default-form" enctype="multipart/form-data">
+         <div class="campo">
+            <label>Nombre</label>
+            <input type="text" name="nombre" placeholder="Nombre" required>
+         </div>
+         <div class="campo">
+            <label>E-mail</label>
+            <input type="email" name="email" placeholder="E-mail" required>
+         </div>
+         <div class="campo">
+            <label>CV (PDF)</label>
+            <input type="file" name="cv" >
+         </div>
+         <div class="campo grid">
+            <input type="submit" class="btn btn-azul" value="Enviar" required>
+         </div>
+      </form>
+
+   </div>
+
+   <div class="info-reclutador">
+      
+      {{#if vacante.autor.nombre}}
+      <p>{{vacante.autor.nombre}}</p>
+      {{/if}}
+      {{#if vacante.autor.imagen}}
+      <img src="/uploads/perfiles/{{vacante.autor.imagen}}">
+      {{/if}}
+
+   </div>
+</div>

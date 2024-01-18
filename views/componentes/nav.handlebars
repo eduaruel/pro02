@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg custom_nav-container end">
+  
+    <div class="">
+
+    </div>
+    <div>
+
+    {{#if barra}}
+    <div class="buscador">
+        <form action="/buscador" method="POST">
+            <input type="text" name="q" class="buscar">
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+    {{/if}}
+
+    {{#if cerrarSesion}}
+        <div class="cerrar-sesion">
+            <p class="">Bienvenido! {{nombre}}</p>
+            {{#if imagen}}
+            <img src="/uploads/perfiles/{{imagen}}" class="admin-perfil">
+            {{/if}}
+            <a href="/administracion" class="">Mi Perfil</a>
+            <a href="/cerrar-sesion" class="btn btn-rojo">Cerrar Sesión</a>
+        </div>
+    {{/if}}
+    </div>
+</nav>

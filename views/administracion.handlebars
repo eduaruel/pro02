@@ -1,0 +1,37 @@
+<main class="lista-vacantes">
+    <div class="botones separador">
+        <a href="/editar-perfil" class="btn btn-verde">Editar Perfil</a>
+        <a href="/vacantes/nueva" class="btn btn-rojo">Nueva Vacante</a>
+        <a href="/premium" class="btn btn-azul"> Plan Premium</a>
+        {{!-- <a href="/dolar-en-venezuela-hoy-lunes-08-de-enero-de-2024/historial/08/01/2024">Ver más</a> --}}
+    </div>
+
+    <h2 class="center">Vacantes Creadas</h2>
+    <div class="panel-administracion">
+    {{#if vacantes.length}}
+        {{#each vacantes}}
+            <div class="vacante">
+                <div class="caja">
+                    <h3>{{empresa}}</h3>
+                    <p class="puesto">{{titulo}}</p>
+                    <p class="candidatos">
+                        {{candidatos.length}} Candidato(s)
+                    </p>
+                </div>
+                <div class="centrar-vertical caja">
+                    <a href="/candidatos/{{id}}" class="btn btn-azul">Candidatos</a>
+                </div>
+                <div class="centrar-vertical caja">
+                    <a href="/vacantes/editar/{{url}}" class="btn btn-verde">Editar</a>
+                </div>
+                <div class="centrar-vertical caja">
+                    <a href="#" data-eliminar="{{_id}}" class="btn btn-rojo">Eliminar</a>
+                </div>
+            </div>
+
+        {{/each}}
+    {{else}}
+        <p>No Hay Vacantes</p>
+    {{/if}}
+    </div>
+</main>

@@ -1,0 +1,2 @@
+3YAtoJLFLX96xJC9
+mongodb+srv://eduaruel:<password>@cluster0.7zslzgo.mongodb.net/?retryWrites=true&w=majority

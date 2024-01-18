@@ -1,0 +1,115 @@
+<div class="hero_area ">
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/logo.png" alt="" />
+                    <span> SG Venezuela </span>
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                </div>
+
+                <div>
+                    <div class="custom_menu-btn">
+                        <button>
+                            {{>nav}}
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section">
+      
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+           
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-5 offset-md-1">
+                                <div class="detail-box">
+                                    {{#if nombrePaginaMostrar}}
+                                    <h1>
+                                        {{nombrePagina}} <br />
+                                        {{#if taglineMostrar}}
+                                        <span>TE AYUDA A BUSCAR</span>
+                                        {{/if}}
+                                    </h1>
+                                    {{/if}}
+
+                                   {{#if nuevaTagLine}}
+                                    <p>
+                                        {{tagLine}}
+                                    </p>
+                                    {{/if}}
+
+                                   {{#if parrafo}}
+                                    <p>
+                                         la oportunidad que necesitas para tu desarrollo
+                                    </p>
+                                    {{/if}}
+                                    
+                                    {{#if boton}}
+                                    <div class="btn-box">
+                                        <a href="/administracion" class="btn-1"> Publicar Vacante </a>
+                                        <a href="/iniciar-administrador" class="btn-2"> Administrador </a>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{#if mostrarImagen}}
+                            <div class="offset-md-1 col-md-4 img-container">
+                                <div class="img-box">
+                                    <img src="/images/slider-img.png" alt="" />
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{#if mostrarImagen2}}
+                            <div class="offset-md-1 col-md-4 img-container">
+                                <div class="img-box">
+                                    <img src="/images/about-img-removebg-preview.png" alt="" />
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{#if mostrarImagen3}}
+                            <div class="offset-md-1 col-md-4 img-container">
+                                <div class="img-box">
+                                    <img src="/images/experience-img-removebg-preview.png" alt="" />
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{#if mostrarImagen4}}
+                            <div class="offset-md-1 col-md-4 img-container">
+                                <div class="img-box">
+                                    <img src="/images/freelance-img.png" alt="" />
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{#if mostrarImagen5}}
+                            <div class="offset-md-1 col-md-4 img-container">
+                                <div class="img-box">
+                                    <img src="/images/registrar-removebg-preview.png" alt="" />
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{#if mostrarImagen6}}
+                            <div class="offset-md-1 col-md-4 img-container">
+                                <div class="img-box">
+                                    <img src="/images/mercantilPago-removebg-preview.png" alt="" />
+                                </div>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end slider section -->
+</div>
