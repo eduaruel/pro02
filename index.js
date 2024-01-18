@@ -54,6 +54,9 @@ app.use(
 		resave: false,
 		saveUninitialized: false,
 		store: MongoStore.create({mongoUrl: process.env.DATABASE}),
+		cookie:{
+			expires: 600000
+		}
 	}),
 );
 //inicializar passport

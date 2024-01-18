@@ -32,19 +32,21 @@ exports.verificarUsuario = (req, res, next) => {
 
 exports.verificarUsuarioAdmin = async (req, res, next) => {
     try {
-        const admin = await Usuarios.findById(req.user._id);
+        // Asegúrate de que el middleware de sesión se haya ejecutado
+        if (req.isAuthenticated()) {
+            const admin = await Usuarios.findById(req.user._id);
 
-        // Revisar usuario
-        if (req.isAuthenticated() && admin && admin._id.toString() === '65a4af0ecc5f625ba7b745f9') {
-            return next(); // Están autenticados
+            // Revisar usuario
+            if (admin && admin._id.toString() === '65a4af0ecc5f625ba7b745f9') {
+                return next(); // Están autenticados
+            }
         }
 
         // Redireccionar
         req.flash('error', 'No eres el Administrador')
-         res.redirect('/iniciar-administrador');
+        res.redirect('/iniciar-administrador');
     } catch (error) {
         console.error(error);
-        
         res.redirect('/iniciar-administrador');
     }
 };
