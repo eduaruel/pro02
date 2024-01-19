@@ -46,6 +46,9 @@
 	.buscador form {
 		overflow-y: hidden;
 	}
+	.info-reclutador img {
+		margin-left: 10rem;
+	}
 }
 
 @media (max-width: 767px) {
@@ -121,6 +124,14 @@
 	.grid {
 		grid-template-columns: repeat(1, 1fr);
 	}
+	.botones {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.botones a {
+		margin-right: 1rem;
+		margin-left: 1rem;
+	}
 }
 
 @media (max-width: 576px) {
@@ -130,6 +141,22 @@
 
 	.category_section .category_container .box {
 		flex-basis: 52%;
+	}
+	.cerrar-sesion {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		margin-left: 10rem;
+	}
+	.admin-perfil {
+		margin-left: 8rem;
+	}
+	.botones {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.botones a {
+		margin-right: 5rem;
+		margin-left: 10rem;
 	}
 }
 
@@ -175,9 +202,36 @@
 	.freelance_section .tab_container .t-link-box .detail-box h3 {
 		font-size: 22px;
 	}
+
+	.default-form .campo {
+		display: grid;
+	}
+	.cerrar-sesion {
+		margin-left: 5rem;
+	}
+	.botones {
+		display: grid;
+	}
+	.botones a {
+		margin-right: 5rem;
+		margin-left: 8rem;
+	}
 }
 
 @media (max-width: 360px) {
+	.cerrar-sesion {
+		margin-left: 1rem;
+	}
+	.admin-perfil {
+		margin-left: 6rem;
+	}
+	.botones {
+		display: grid;
+	}
+	.botones a {
+		margin-right: 5rem;
+		margin-left: 3rem;
+	}
 }
 
 @media (min-width: 1200px) {

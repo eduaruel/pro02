@@ -69,7 +69,8 @@ p.candidatos {
 	font-size: 2.4rem;
 }
 .info-reclutador img {
-	max-width: 300px;
+	margin-left: 25rem;
+	max-width: 30rem;
 	width: 100%;
 }
 .datos-reclutador {
