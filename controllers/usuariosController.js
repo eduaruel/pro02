@@ -72,6 +72,7 @@ exports.formCrearCuenta = (req,res)=>{
 }
 
 exports.validarRegistro = (req, res, next) => {
+   
     //sanitizar 
     req.sanitize('nombre');
     req.sanitize('email');
@@ -79,32 +80,41 @@ exports.validarRegistro = (req, res, next) => {
     req.sanitize('confirmar');
 
     //validar
-    req.checkBody('nombre', 'Nombre Obligatorio').notEmpty();
-    req.checkBody('email', 'Email No Valido').isEmail();
-    req.checkBody('password', 'Password No Valido').notEmpty();
-    req.checkBody('confirmar', 'Confirmar Password').notEmpty();
-    req.checkBody('confirmar', 'Password Diferente').equals(req.body.password);
-
-    const errores = req.validationErrors();
-
-    // console.log(errores);
-    // return 
-    if(errores){
-        //console.log(errores);
-       req.flash('error', errores.map(error => error.msg));
-        res.render('crear-cuenta', {
-            nombrePagina: 'Crea tu cuenta en SG Venezuela',
-            tagline: 'Comienza a publicar tus vacantes',
-            nombrePaginaMostrar:true,
-            parrafo:true,
-            cerrarSesion:true,
-			nombre: req.user.nombre,
-            mensajes: req.flash()
-        })
-        return 
+       
+    if (req.body.nombre === '') {
+        req.checkBody('nombre','Nombre Obligatorio').notEmpty();
     }
 
-    next();
+    if (req.body.email === '') {
+        req.checkBody('email','Email No Valido').notEmpty();
+    }
+    if (req.body.password === '') {
+        req.checkBody('password', 'Password No Valido').notEmpty();
+    }
+    if (req.body.confirmar === '') {
+        req.checkBody('confirmar', 'Confirmar Password').notEmpty();
+    }
+
+    //console.log(req.body);
+
+    // req.checkBody('nombre', 'Nombre Obligatorio').notEmpty();
+    // req.checkBody('email', 'Email No Valido').isEmail();
+    // req.checkBody('password', 'Password No Valido').notEmpty();
+    // req.checkBody('confirmar', 'Confirmar Password').notEmpty();
+    // req.checkBody('confirmar', 'Password Diferente').equals(req.body.password);
+
+    const errores = req.validationErrors();
+  
+     //console.log(errores);
+    // return 
+     if (errores) {
+        req.flash('error', errores.map(error => error.msg));
+        res.redirect('/crear-cuenta');
+    }else{
+
+        next()
+
+    }
 }
 
 exports.crearUsuarios = async (req, res, next) => {
@@ -226,19 +236,19 @@ exports.validarEdicionVacante = (req, res, next) =>{
     }
 
     if (req.body.empresa === '') {
-        req.checkBody('email','La empresa no puede ir vacio').notEmpty();
+        req.checkBody('empresa','La empresa no puede ir vacio').notEmpty();
     }
     if (req.body.ubicacion === '') {
-        req.checkBody('email','La empresa no puede ir vacio').notEmpty();
+        req.checkBody('ubicacion','La empresa no puede ir vacio').notEmpty();
     }
     if (req.body.salario === '') {
-        req.checkBody('email','El salario no puede ir vacio').notEmpty();
+        req.checkBody('salario','El salario no puede ir vacio').notEmpty();
     }
     if (req.body.contrato === '') {
-        req.checkBody('email','El contrato no puede ir vacio').notEmpty();
+        req.checkBody('contrato','El contrato no puede ir vacio').notEmpty();
     }
     if (req.body.skills === '') {
-        req.checkBody('email','Debe Seleccionar un skills').notEmpty();
+        req.checkBody('skills','Debe Seleccionar un skills').notEmpty();
     }
 
     const errores = req.validationErrors();
